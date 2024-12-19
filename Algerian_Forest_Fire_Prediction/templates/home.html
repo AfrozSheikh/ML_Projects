@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="login">
+            <h1>FWI Prediction</h1>
+            <!-- Main Input For Receiving Query to our ML -->
+            <form action="{{ url_for('predict_datapoint') }}" method="post">
+                <input type="text" name="Temperature" placeholder="Temperature" required="required" class="form-control mb-2" />
+                <input type="text" name="RH" placeholder="RH" required="required" class="form-control mb-2" />
+                <input type="text" name="Ws" placeholder="Ws" required="required" class="form-control mb-2" />
+                <input type="text" name="Rain" placeholder="Rain" required="required" class="form-control mb-2" />
+                <input type="text" name="FFMC" placeholder="FFMC" required="required" class="form-control mb-2" />
+                <input type="text" name="DMC" placeholder="DMC" required="required" class="form-control mb-2" />
+                <input type="text" name="ISI" placeholder="ISI" required="required" class="form-control mb-2" />
+                <input type="text" name="Classes" placeholder="Classes" required="required" class="form-control mb-2" />
+                <input type="text" name="Region" placeholder="Region" required="required" class="form-control mb-2" />
+                <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </form>
+            <h2 class="mt-3">
+                THE FWI prediction is {{ result }}
+            </h2>
+        </div>
+    </div>
+</body>
+</html>
