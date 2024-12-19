@@ -10,4 +10,4 @@ To get started with the code in this repository, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/ml-projects.git
+   git clone https://github.com/your-username/ml-projects.git](https://github.com/AfrozSheikh/ML_Projects.git
