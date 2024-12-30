@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict GLD</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GLD Prediction App</h1>
+        <form id="prediction-form">
+            <label for="SPX">SPX:</label>
+            <input type="number" step="any" name="SPX" required><br><br>
+
+            <label for="USO">USO:</label>
+            <input type="number" step="any" name="USO" required><br><br>
+
+            <label for="SLV">SLV:</label>
+            <input type="number" step="any" name="SLV" required><br><br>
+
+            <label for="EUR/USD">EUR/USD:</label>
+            <input type="number" step="any" name="EUR/USD" required><br><br>
+
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+        document.getElementById('prediction-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            document.getElementById('result').textContent = result.prediction 
+                ? result.prediction
+                : result.error;
+        });
+    </script>
+</body>
+</html>
